@@ -1,19 +1,33 @@
-//WAP TO REVERSE AN ARRAY
-#include<stdio.h>
-int main()
-{
-    int n ,i;
-    printf("enter the no of elements of an array:");
-    scanf("%d", &n);
-    int a[i];
-    for(int i=0; i<n; i++){
-        scanf("%d", &a[i]);
+#include <stdio.h>
+
+void reverseArray(int arr[], int size) {
+    int temp;
+    int start = 0;
+    int end = size - 1;
+
+    while (start < end) {
+        // Swap elements
+        temp = arr[start];
+        arr[start] = arr[end];
+        arr[end] = temp;
+
+        // Move pointers toward the middle
+        start++;
+        end--;
     }
+}
 
+int main() {
+    int data[] = {10, 20, 30, 40, 50};
+    int n = sizeof(data) / sizeof(data[0]);
 
-    for(int i=n-1; i>=0; i--){
-        printf("%d",a[i]);
+    printf("Original array: ");
+    for (int i = 0; i < n; i++) printf("%d ", data[i]);
 
-    }printf("the reverse is:%d");
+    reverseArray(data, n);
+
+    printf("\nReversed array: ");
+    for (int i = 0; i < n; i++) printf("%d ", data[i]);
+
     return 0;
 }
